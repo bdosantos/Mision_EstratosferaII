@@ -12,11 +12,13 @@
         <!-- Carga de modelos -->
         <a-assets>
             <a-asset-item id="museo-glb" src="museo.glb"></a-asset-item>
-   </a-assets>
+         </a-assets>
 
         <!-- Modelo 3D del museo -->
-        <a-entity gltf-model="#museo-glb" scale="100 120 100">
-</a-entity>
+        <a-entity gltf-model="#museo-glb" scale="200 100 200">
+            <!-- Cámara dentro del museo con controles de mira y controles WASD -->
+            <a-entity camera look-controls wasd-controls position="-80 60 -100"></a-entity>
+         </a-entity>
 
         <!-- Luz ambiente para iluminar el entorno -->
         <a-light type="ambient" color="#FFFFFF" intensity="0.1"></a-light>
