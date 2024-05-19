@@ -11,13 +11,16 @@
     <a-scene>
         <!-- Carga de modelos -->
         <a-assets>
-            <a-asset-item id="casa-glb" src="https://raw.githubusercontent.com/bdosantos/Mision_EstratosferaII/main/casa.glb"></a-asset-item>
+            <a-asset-item id="casa-glb" src="casa.glb"></a-asset-item>
+             <a-asset-item id="cmadrid-glb" src="cmadrid.glb"></a-asset-item>
+            
         </a-assets>
 
         <!-- Modelo 3D del museo -->
         <a-entity gltf-model="#casa-glb" scale="400 200 400" position="10 -10 20">
+             <a-entity gltf-model="#cmadrid-glb" position="-247 120 50" scale="2 2 2" rotation="-90 0 0"></a-entity>
             <!-- Cámara dentro del museo con controles de mira y controles WASD -->
-            <a-entity camera look-controls wasd-controls position="-50 10 25"></a-entity>
+            <a-entity camera look-controls wasd-controls position="-200 10 250" rotation="0 180 0"></a-entity>
         </a-entity>
 
         <!-- Luz ambiente para iluminar el entorno -->
