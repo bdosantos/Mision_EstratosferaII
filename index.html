@@ -7,9 +7,10 @@
     <meta name="author" content="Elisa Garzo">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
 </head>
 <body>
-    <a-scene>
+    <a-scene physics="debug: false">
         <!-- Carga de modelos -->
         <a-assets>
             <a-asset-item id="museo-glb" src="museo.glb"></a-asset-item>
@@ -30,20 +31,20 @@
         </a-assets>
 
         <!-- Modelo 3D del museo -->
-        <a-entity gltf-model="#museo-glb" scale="10 10 10" position="10 0 10">
+        <a-entity gltf-model="#museo-glb" scale="10 10 10" position="10 0 10" static-body>
             <!-- Logos -->
-            <a-entity gltf-model="#bionostrum-glb" position="-100 2 -39" scale="4 4 4" rotation="0 -90 0"></a-entity>
-            <a-entity gltf-model="#logos-glb" position="-190 80 -34" scale="8 8 8" rotation="90 180 0"></a-entity>
-            <a-entity gltf-model="#mesaLab-glb" position="-100 -32 300" scale="4 4 4" rotation="0 180 0"></a-entity>
-            <a-entity gltf-model="#elisa-glb" position="-290 20 -39" scale="2 2 2" rotation="0 -90 0"></a-entity>
-            <a-entity gltf-model="#mangelesnombre-glb" position="400 40 80" scale="6 6 6" rotation="0 0 0"></a-entity>
-            <a-entity gltf-model="#Globo-glb" position="300 0 -200" scale="30 30 30" rotation="0 0 0"></a-entity>
-            <a-entity gltf-model="#cartel-glb" position="-200 10 -36" scale="8 8 8" rotation="0 90 0"></a-entity>
-            <a-entity gltf-model="#marilogos-glb" position="275 -20 0" scale="10 10 10" rotation="0 -90 0"></a-entity>
-            <a-video src="#Estilectomia" position="-320 1.6 100" rotation="0 90 180" width="96" height="54"></a-video>
+            <a-entity gltf-model="#bionostrum-glb" position="-100 2 -39" scale="4 4 4" rotation="0 -90 0" static-body></a-entity>
+            <a-entity gltf-model="#logos-glb" position="-190 80 -34" scale="8 8 8" rotation="90 180 0" static-body></a-entity>
+            <a-entity gltf-model="#mesaLab-glb" position="-100 -32 300" scale="4 4 4" rotation="0 180 0" static-body></a-entity>
+            <a-entity gltf-model="#elisa-glb" position="-290 20 -39" scale="2 2 2" rotation="0 -90 0" static-body></a-entity>
+            <a-entity gltf-model="#mangelesnombre-glb" position="400 40 80" scale="6 6 6" rotation="0 0 0" static-body></a-entity>
+            <a-entity gltf-model="#Globo-glb" position="300 0 -200" scale="30 30 30" rotation="0 0 0" static-body></a-entity>
+            <a-entity gltf-model="#cartel-glb" position="-200 10 -36" scale="8 8 8" rotation="0 90 0" static-body></a-entity>
+            <a-entity gltf-model="#marilogos-glb" position="275 -20 0" scale="10 10 10" rotation="0 -90 0" static-body></a-entity>
+            <a-video src="#Estilectomia" position="-320 1.6 100" rotation="0 90 180" width="96" height="54" static-body></a-video>
 
             <!-- Cámara dentro del museo con controles de mira y controles WASD -->
-            <a-entity camera look-controls wasd-controls="acceleration: 500" position="-250 1.6 -180" rotation="0 0 0"></a-entity>
+            <a-entity camera look-controls wasd-controls="acceleration: 500" position="-250 1.6 -180" rotation="0 0 0" dynamic-body></a-entity>
         </a-entity>
 
         <!-- Luz ambiente para iluminar el entorno -->
