@@ -27,8 +27,8 @@
             <a-asset-item id="Globo-glb" src="Globo.glb"></a-asset-item>
             <a-asset-item id="cartel-glb" src="cartel.glb"></a-asset-item>
             <!-- Sala de Elisa -->
-            <video id="Estilectomia" src="Estilectomia.mp4" crossorigin="anonymous" playsinline webkit-playsinline></video>
-            <video id="larvapulgon" src="larvapulgon.mp4" crossorigin="anonymous" playsinline webkit-playsinline></video>
+            <video id="Estilectomia" src="Estilectomia.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay></video>
+            <video id="larvapulgon" src="larvapulgon.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay></video>
             
         </a-assets>
 
@@ -62,13 +62,7 @@
         <a-light type="point" color="#FFFFFF" intensity="0.35" position="0 4 -10"></a-light>
     </a-scene>
 
-    <script>
-        document.addEventListener('click', function () {
-            var video = document.querySelector('#Estilectomia');
-            if (video.paused) {
-                video.play();
-            }
-        });
-    </script>
+    <!-- Se elimina el script de reproducción automática, ya que ahora los videos se reproducen automáticamente -->
+
 </body>
 </html>
