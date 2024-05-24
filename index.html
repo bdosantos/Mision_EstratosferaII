@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sirfidos Vs Pulgonautas: Misión Estratosfera</title>
-    <meta charset="utf-8">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
 </head>
 <body>
     <a-scene>
@@ -25,7 +25,7 @@
             <a-asset-item id="Globo-glb" src="Globo.glb"></a-asset-item>
             <a-asset-item id="cartel-glb" src="cartel.glb"></a-asset-item>
             <!--sala de Elisa-->
-            <video id="Estilectomia" autoplay loop="true" src="Estilectomia.mp4"></video>
+            <video id="Estilectomia" autoplay loop="true" src="Estilectomia.mp4" crossorigin="anonymous"></video>
             <meta name="author" content="Elisa Garzo">
 
            
@@ -61,7 +61,6 @@
         <a-light type="point" color="#FFFFFF" intensity="0.35" position="-10 4 0"></a-light>
         <a-light type="point" color="#FFFFFF" intensity="0.35" position="0 4 10"></a-light>
         <a-light type="point" color="#FFFFFF" intensity="0.35" position="0 4 -10"></a-light>
-        <a-videosphere src="#Estilectomia.mp4"></a-videosphere>
     </a-scene>
 </body>
 </html>
