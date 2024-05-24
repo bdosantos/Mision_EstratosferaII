@@ -28,6 +28,7 @@
             <a-asset-item id="cartel-glb" src="cartel.glb"></a-asset-item>
             <!-- Sala de Elisa -->
             <video id="Estilectomia" src="Estilectomia.mp4" crossorigin="anonymous" playsinline webkit-playsinline></video>
+            <video id="larva_pulgon" src="larva_pulgon.mp4" crossorigin="anonymous" playsinline webkit-playsinline></video>
             
         </a-assets>
 
@@ -43,6 +44,8 @@
             <a-entity gltf-model="#cartel-glb" position="-200 10 -36" scale="8 8 8" rotation="0 90 0" static-body></a-entity>
             <a-entity gltf-model="#marilogos-glb" position="275 -20 0" scale="10 10 10" rotation="0 -90 0" static-body></a-entity>
             <a-video src="#Estilectomia" position="-320 1.6 100" rotation="0 90 180" width="96" height="54" static-body></a-video>
+            <a-video src="#larva_pulgon" position="400 40 80" rotation="0 90 180" width="96" height="54" static-body></a-video>
+
 
             <!-- Cámara dentro del museo con controles de mira y controles WASD -->
             <a-entity camera look-controls wasd-controls="acceleration: 500" position="-250 1.6 -180" rotation="0 0 0" dynamic-body></a-entity>
