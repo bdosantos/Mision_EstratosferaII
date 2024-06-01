@@ -67,44 +67,7 @@
             <a-video src="#Preparacion" position="-70 -2 -408" rotation="0 0 0" width="45" height="60" static-body></a-video>
 
                 <!-- Animación del sírfido-->
-                <!-- Crear la entidad con las animaciones -->
-      <a-entity gltf-model="#sirfido-glb" position="-320 80 -150">
-        <!-- Animación de ida -->
-        <a-animation
-          attribute="position"
-          from="-320 80 -150"
-          to="400 80 -350"
-          dur="5000"
-          fill="forwards"
-          easing="linear"
-          begin="startAnim"></a-animation>
-        <!-- Rotación de 180 grados en el punto final -->
-        <a-animation
-          attribute="rotation"
-          from="0 0 0"
-          to="0 180 0"
-          dur="1000"
-          fill="forwards"
-          easing="linear"
-          begin="startAnimEnd"></a-animation>
-        <!-- Animación de vuelta -->
-        <a-animation
-          attribute="position"
-          from="400 80 -350"
-          to="-320 80 -150"
-          dur="5000"
-          fill="forwards"
-          easing="linear"
-          begin="startAnimEnd"></a-animation>
-        <!-- Rotación de 180 grados en el punto inicial -->
-        <a-animation
-          attribute="rotation"
-          from="0 180 0"
-          to="0 360 0"
-          dur="1000"
-          fill="forwards"
-          easing="linear"
-          begin="startAnimEndReturn"></a-animation>
+        
       
 
             <!-- Cámara dentro del museo con controles de mira y controles WASD -->
