@@ -79,6 +79,27 @@
             <!-- Cámara dentro del museo con controles de mira y controles WASD -->
             <a-entity camera look-controls wasd-controls="acceleration: 500" position="0 1.6 -180" rotation="0 146 0" dynamic-body></a-entity>
         </a-entity>
+        <!-- Mover al sírfido aleatoriamente-->
+        <script>
+      // Función para generar una posición aleatoria dentro de los límites de la realidad
+      function getRandomPosition() {
+        var x = Math.random() * 800 - 400; // Rango [-400, 400]
+        var y = Math.random() * 10;        // Rango [0, 10]
+        var z = Math.random() * 800 - 400; // Rango [-400, 400]
+        return `${x} ${y} ${z}`;
+      }
+
+      // Función para mover el sírfido a una nueva posición aleatoria
+      function moveSirfido() {
+        var sirfido = document.getElementById('sirfido');
+        sirfido.setAttribute('position', getRandomPosition());
+      }
+
+      // Mover el sírfido a una nueva posición aleatoria cada 2 segundos
+      setInterval(moveSirfido, 2000);
+    </script>
+
+        
 
         <!-- Luz ambiente para iluminar el entorno -->
         <a-light type="ambient" color="#FFFFFF" intensity="0.5"></a-light>
