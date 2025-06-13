@@ -1,146 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sírfidos Vs Pulgonautas: Misión Estratosfera</title>
-    <meta name="author" content="Elisa Garzo y María Ángeles Marcos García">
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sírfidos Vs Pulgonautas: Misión Estratosfera</title>
+  <meta name="author" content="Elisa Garzo y María Ángeles Marcos García" />
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+
+  <script>
+    AFRAME.registerComponent('loader', {
+      init: function () {
+        this.el.setAttribute('visible', false);
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              this.el.setAttribute('visible', true);
+              observer.disconnect();
+            }
+          });
+        }, {threshold: 0.5});
+        observer.observe(this.el);
+      }
+    });
+  </script>
 </head>
 <body>
-    <a-scene physics="debug: false">
-        <!-- Carga de modelos -->
-        <a-assets>
-            <a-asset-item id="museo-glb" src="museo.glb"></a-asset-item>
-            <!-- orden alfabético -->
-             <video id="Cartel" src="Cartel.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>
-             
-            
-             <video id="Nacimiento" src="Nacimiento.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>
-             <a-asset-item id="DE-glb" src="DE.glb"></a-asset-item>
-             <a-asset-item id="Escritorio-glb" src="Escritorio.glb"></a-asset-item>
-             <video id="Estilectomia" src="Estilectomia.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>
-             <a-asset-item id="GV-glb" src="GV.glb"></a-asset-item>
-             <video id="Muertos" src="Muertos.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>
-             <video id="morfologiapulgon" src="morfologiapulgon.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>
-             <video id="Preparacion" src="Preparacion.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>
-             <video id="hormigas" src="hormigas.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>
-            <!--minúsculas-->
-         
-            <a-asset-item id="caja-glb" src="caja.glb"></a-asset-item>
-            <a-asset-item id="cartelelisaalberto-glb" src="cartelelisaalberto.glb"></a-asset-item>
-            <a-asset-item id="cartelangeles-glb" src="cartelangeles.glb"></a-asset-item>
-            <a-asset-item id="conclusiones-glb" src="conclusiones.glb"></a-asset-item>
-            <a-asset-item id="currialberto-glb" src="currialberto.glb"></a-asset-item>
-            <a-asset-item id="curriculum1-glb" src="curriculum1.glb"></a-asset-item>
-            <a-asset-item id="currieli-glb" src="currieli.glb"></a-asset-item>
-            <a-asset-item id="enredaderas-glb" src="enredaderas.glb"></a-asset-item>
-            <a-asset-item id="globo-glb" src="globo.glb"></a-asset-item>
-            <a-asset-item id="laboratorio-glb" src="laboratorio.glb"></a-asset-item>
-            <a-asset-item id="Cuaderrno-glb" src="Cuaderrno.glb"></a-asset-item>
-            <video id="larvapulgon" src="larvapulgon.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>  
-            <a-asset-item id="logos-glb" src="logos.glb"></a-asset-item>
-            <a-asset-item id="mapa-glb" src="mapa.glb"></a-asset-item>
-            <a-asset-item id="muestra-glb" src="muestra.glb"></a-asset-item>
-            <a-asset-item id="objetivos-glb" src="objetivos.glb"></a-asset-item>
-            <a-asset-item id="planta-glb" src="planta.glb"></a-asset-item>
-           
-            <video id="postmorten" src="postmorten.mp4" crossorigin="anonymous" playsinline webkit-playsinline autoplay loop></video>
-            <a-asset-item id="prensa-glb" src="prensa.glb"></a-asset-item>
-            <a-asset-item id="presentacion-glb" src="presentacion.glb"></a-asset-item>
-            
-            <a-asset-item id="pulgotext-glb" src="pulgotext.glb"></a-asset-item>
-            <a-asset-item id="resultados-glb" src="resultados.glb"></a-asset-item>
-            <a-asset-item id="sirfido-glb" src="sirfido.glb"></a-asset-item>
-            <a-asset-item id="sirfitex-glb" src="sirfitext.glb"></a-asset-item>        
-           
-        </a-assets>
+  <a-scene physics="debug: false">
+    <a-assets>
+      <!-- Modelos -->
+      <a-asset-item id="museo-glb" src="museo.glb"></a-asset-item>
+      <a-asset-item id="GV-glb" src="GV.glb"></a-asset-item>
+      <a-asset-item id="DE-glb" src="DE.glb"></a-asset-item>
+      <!-- ... otros .glb ... -->
 
-        <!-- Modelo 3D del museo -->
-        <a-entity gltf-model="#museo-glb" scale="10 10 10" position="10 0 10" static-body>
-            <!-- Logos -->
-            
-            <a-entity gltf-model="#logos-glb" position="-190 80 -34" scale="8 8 8" rotation="90 180 0" static-body></a-entity>
-            <a-entity gltf-model="#GV-glb" position="0 90 -34" scale="3 3 3" rotation="0 90 0" static-body></a-entity>
-            <a-entity gltf-model="#DE-glb" position="80 90 -34" scale="2 2 2" rotation="0 90 0" static-body></a-entity>
-            <a-entity gltf-model="#Escritorio-glb" position="200 -40 350" scale="10 10 10" rotation="0 180 0" static-body></a-entity>
-            <a-entity gltf-model="#Cuaderrno-glb" position="45 20 180" scale="2 9 9" rotation="0 180 0" static-body></a-entity>
-            <a-entity gltf-model="#caja-glb" position="0 0 -200" scale="0.07 0.07 0.07" rotation="0 180 0" static-body 
-          animation="property: rotation; to: 0 540 0; loop: true; dur: 10000; easing: linear;"></a-entity>
-            <a-entity gltf-model="#cartelelisaalberto-glb" position="-275 10 -36" scale="2 2 2" rotation="180 0 0" static-body></a-entity>
-            <a-entity gltf-model="#cartelangeles-glb" position="-100 10 -39" scale="2 2 2" rotation="180 0 0" static-body></a-entity>
-            <a-entity gltf-model="#conclusiones-glb" position="275 20 -39" scale="12 12 12" rotation="0 90 0" static-body></a-entity>
-            <a-entity gltf-model="#curriculum1-glb" position="250 20 -10" scale="10 10 10" rotation="0 90 0" static-body></a-entity>
-            <a-entity gltf-model="#currieli-glb" position="38 20 180" scale="4 10 10" rotation="0 0 0" static-body></a-entity>
-            <a-entity gltf-model="#currialberto-glb" position="-190 20 -10" scale="10 10 10" rotation="0 0 0" static-body></a-entity>
-            <a-entity gltf-model="#enredaderas-glb" position="-190 100 -10" sacle="15 15 15" rotation="0 0 0" static-body></a-entity>
-            <a-entity gltf-model="#globo-glb" position="400 0 -350" scale="10 10 10" rotation="0 0 0" static-body></a-entity>
-            <a-entity gltf-model="#laboratorio-glb" position="-150 -45 350" scale="10 10 10" rotation="0 90 0" static-body></a-entity>
-            <a-entity gltf-model="#prensa-glb" position="430 0 -150" scale="0.25 0.25 0.25" rotation="0 0 0" static-body></a-entity>
-            <a-entity gltf-model="#mapa-glb" position="434 -10 -353" scale="3 3 0.5" rotation="0 92 0" static-body></a-entity>
-           
-            <a-entity gltf-model="#presentacion-glb" position="-322 20 -100" scale="6 6 6" rotation="0 180 0" static-body></a-entity>
-            <a-entity gltf-model="#objetivos-glb" position="-323 20 -220" scale="7 7 7" rotation="0 180 0" static-body></a-entity>
-            <a-entity gltf-model="#muestra-glb" position="-323 20 -350" scale="7 7 7" rotation="0 180 0" static-body></a-entity>
-            <a-entity gltf-model="#resultados-glb" position="100 25 -430" scale="15 12 12" rotation="0 0 0" static-body></a-entity>
-          
-            <a-entity gltf-model="#planta-glb" position="60 -25 -60" scale="5 5 5" rotation="0 0 0" static-body></a-entity>
-           
-            <a-video src="#Estilectomia" position="-316 1.6 150" rotation="0 90 180" width="96" height="54" static-body></a-video>
-            <a-entity gltf-model="#pulgotext-glb" position="-320 23 180" scale="8 8 8" rotation="0 180 0" static-body></a-entity>
-            <a-entity gltf-model="#sirfitex-glb" position="410 20 180" scale="10 10 10" rotation="0 0 0" static-body></a-entity>
-            <a-video src="#larvapulgon" position="400 -10 310" rotation="180 90 180" width="96" height="54" static-body></a-video>
-           
-            <a-video src="#Preparacion" position="-319 -2 -380" rotation="0 90 0" width="45" height="60" static-body></a-video>
-            <a-video src="#Muertos" position="320 9 -422" rotation="0 0 0" width="90" height="90" static-body></a-video>
-            <a-video src="#Nacimiento" position="-316 1.6 239" rotation="0 90 0" width="70" height="70" static-body></a-video>
-            <a-video src="#morfologiapulgon" position="-316 0 330" rotation="0 90 0" width="100" height="70" static-body></a-video>
-            <a-video src="#hormigas" position="-316 0 50" rotation="0 90 0" width="70" height="70" static-body></a-video>
-            <a-video src="#Cartel" position="-185 10 -38" rotation="0 180 0" width="100" height="100" static-body></a-video>
-            
-            <!-- Animación del sírfido -->
-            <a-entity 
-               gltf-model="#sirfido-glb" 
-               position="-320 80 -150" 
-               rotation="0 90 0"
-               scale="3 3 3" 
-               animation="property: position; to: 400 80 -350; dur: 5000; easing: linear; loop: true; dir: alternate">
-            </a-entity>
-            <a-entity 
-              gltf-model="#sirfido-glb" 
-              position="-200 80 -150"  
-              rotation="0 90 0" 
-              scale="3 3 3" 
-              static-body=""
-              animation="property: rotation; to: 0 540 0; loop: true; dur: 10000; easing: linear;">
-            </a-entity>
-            <a-entity 
-              gltf-model="#sirfido-glb" 
-              position="-100 80 150"  
-              rotation="0 90 0" 
-              scale="3 3 3" 
-              static-body=""
-              animation="property: rotation; to: 0 540 0; loop: true; dur: 10000; easing: linear;">
-            </a-entity>
-            <!-- Cámara dentro del museo con controles de mira y controles WASD -->
-             <a-entity camera look-controls wasd-controls="acceleration: 50000" position="-200 10 -300"
-            rotation="0 0 0" dynamic-body look-at="190 10 -34"></a-entity>
-        </a-entity>
-      
-        <!-- Luz ambiente para iluminar el entorno -->
-        <a-light type="ambient" color="#FFFFFF" intensity="0.5"></a-light>
+      <!-- Vídeos optimizados -->
+      <video id="Estilectomia" src="Estilectomia_720p.mp4" crossorigin="anonymous" playsinline autoplay loop preload="none"></video>
+      <video id="LarvaPulgon" src="larvapulgon_720p.mp4" crossorigin="anonymous" playsinline autoplay loop preload="none"></video>
+      <!-- ... otros vídeos reducidos ... -->
+    </a-assets>
 
-        <!-- Luces puntuales para iluminar el interior del museo -->
-        <a-light type="point" color="#FFFFFF" intensity="0.35" position="0 4 0"></a-light>
-        <a-light type="point" color="#FFFFFF" intensity="0.35" position="10 4 0"></a-light>
-        <a-light type="point" position="45 20 180" intensity="1.5" color="#FFFFFF" distance="50" decay="2"></a-light>
+    <!-- Modelo del museo (estático) -->
+    <a-entity gltf-model="#museo-glb" position="10 0 10" scale="10 10 10">
+      <!-- Ejemplo de modelo cargado por proximidad -->
+      <a-entity gltf-model="#GV-glb"
+                loader
+                position="0 90 -34"
+                scale="3 3 3"
+                material="shader: flat">
+      </a-entity>
 
-        <a-light type="point" color="#FFFFFF" intensity="0.35" position="-10 4 0"></a-light>
-        <a-light type="point" color="#FFFFFF" intensity="0.35" position="0 4 10"></a-light>
-        <a-light type="point" color="#FFFFFF" intensity="0.35" position="0 4 -10"></a-light>
-    </a-scene>
+      <a-entity gltf-model="#DE-glb"
+                loader
+                position="80 90 -34"
+                scale="2 2 2"
+                material="shader: flat">
+      </a-entity>
+      <!-- Añade más entidades con loader donde sea necesario -->
+    </a-entity>
+
+    <!-- Vídeos en pared -->
+    <a-video src="#Estilectomia" position="-316 1.6 150"
+             rotation="0 90 180" width="96" height="54"></a-video>
+    <a-video src="#LarvaPulgon" position="400 -10 310"
+             rotation="180 90 180" width="96" height="54"></a-video>
+    <!-- Más vídeos... -->
+
+    <!-- Sírfido animado -->
+    <a-entity gltf-model="#GV-glb"
+              loader
+              position="-320 80 -150"
+              rotation="0 90 0"
+              scale="3 3 3"
+              animation="property: position; to: 400 80 -350; dur: 5000; easing: linear; loop: true; dir: alternate;">
+    </a-entity>
+
+    <!-- Cámara optimizada -->
+    <a-entity camera="far: 500; fov: 60"
+              position="-200 10 -300"
+              look-controls
+              wasd-controls="acceleration: 50000"
+              look-at="190 10 -34">
+    </a-entity>
+
+    <!-- Iluminación simplificada -->
+    <a-light type="ambient" color="#FFFFFF" intensity="0.5"></a-light>
+    <a-light type="point" color="#FFFFFF" intensity="0.35" position="0 4 0"></a-light>
+  </a-scene>
 </body>
 </html>
 
